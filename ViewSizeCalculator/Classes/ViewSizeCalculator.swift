@@ -26,16 +26,17 @@ public struct ViewSizeCalculator<T: UIView> {
     
     public let sourceView: T
     public let calculateTargetView: UIView
+    public let cache: NSCache = NSCache()
     
-    public let width: NSLayoutConstraint
-    public let height: NSLayoutConstraint
+    private let widthConstraint: NSLayoutConstraint
+    private let heightConstraint: NSLayoutConstraint
     
     public init(sourceView: T, @noescape calculateTargetView: (T) -> UIView) {
         
         self.sourceView = sourceView
         self.calculateTargetView = calculateTargetView(sourceView)
         
-        self.width = NSLayoutConstraint(
+        self.widthConstraint = NSLayoutConstraint(
             item: self.calculateTargetView,
             attribute: .Width,
             relatedBy: .Equal,
@@ -45,7 +46,7 @@ public struct ViewSizeCalculator<T: UIView> {
             constant: 0
         )
         
-        self.height = NSLayoutConstraint(
+        self.heightConstraint = NSLayoutConstraint(
             item: self.calculateTargetView,
             attribute: .Height,
             relatedBy: .Equal,
@@ -54,16 +55,41 @@ public struct ViewSizeCalculator<T: UIView> {
             multiplier: 0,
             constant: 0
         )
-        
-        NSLayoutConstraint.activateConstraints([self.width, self.height])
-        
-        self.height.active = false
     }
     
-    public func calculate(@noescape closure: (T) -> Void) -> CGSize {
+    public func calculate(
+        width width: CGFloat?,
+        height: CGFloat?,
+        cacheKey: String,
+        @noescape closure: (T) -> Void) -> CGSize {
+        
+        let combinedCacheKey = cacheKey + "|" + "\(width):\(height)"
+        
+        if let size = (cache.objectForKey(combinedCacheKey) as? NSValue)?.CGSizeValue() {
+            return size
+        }
+        
+        if let width = width {
+            widthConstraint.active = true
+            widthConstraint.constant = width
+        }
+        else {
+            widthConstraint.active = false
+        }
+        
+        if let height = height {
+            heightConstraint.active = true
+            heightConstraint.constant = height
+        }
+        else {
+            heightConstraint.active = false
+        }
         
         closure(sourceView)
         
-        return calculateTargetView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = calculateTargetView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        cache.setObject(NSValue(CGSize: size), forKey: combinedCacheKey)
+        
+        return size
     }
 }
