@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+               BlueprintIdentifier = "4B9093561D41F1C800C6B146"
                BuildableName = "ViewSizeCalculator_Example.app"
                BlueprintName = "ViewSizeCalculator_Example"
                ReferencedContainer = "container:ViewSizeCalculator.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+            BlueprintIdentifier = "4B9093561D41F1C800C6B146"
             BuildableName = "ViewSizeCalculator_Example.app"
             BlueprintName = "ViewSizeCalculator_Example"
             ReferencedContainer = "container:ViewSizeCalculator.xcodeproj">
@@ -79,7 +79,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+            BlueprintIdentifier = "4B9093561D41F1C800C6B146"
             BuildableName = "ViewSizeCalculator_Example.app"
             BlueprintName = "ViewSizeCalculator_Example"
             ReferencedContainer = "container:ViewSizeCalculator.xcodeproj">
@@ -98,7 +98,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
+            BlueprintIdentifier = "4B9093561D41F1C800C6B146"
             BuildableName = "ViewSizeCalculator_Example.app"
             BlueprintName = "ViewSizeCalculator_Example"
             ReferencedContainer = "container:ViewSizeCalculator.xcodeproj">

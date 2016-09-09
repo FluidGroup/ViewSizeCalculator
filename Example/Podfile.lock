@@ -21,7 +21,7 @@ SPEC CHECKSUMS:
   RxCocoa: 89ab00d5753502520227940e3a0e0a0413683c6b
   RxDataSources: e169bba94a7be584df7c1e1487fa56edc8753ae6
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
-  ViewSizeCalculator: e96879efb53d94e0bd4bbd2f8c17dd5d1c150e48
+  ViewSizeCalculator: 9986a89bc4edecc795f7a2acdc61c3e683baf8c1
 
 PODFILE CHECKSUM: ef5c47fdd73062998cf3fb5684ca87e1f8f37668
 
