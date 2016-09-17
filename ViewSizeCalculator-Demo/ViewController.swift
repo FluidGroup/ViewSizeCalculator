@@ -55,13 +55,13 @@ final class ViewController: UIViewController {
         
         dataSource.configureCell = { dataSoucre, tableView, indexPath, model in
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! Cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
             cell.update(item: model)
             return cell
         }
         
         items.asDriver()
-            .drive(tableView.rx_itemsWithDataSource(dataSource))
+            .drive(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
         
         tableView.delegate = self
@@ -74,24 +74,24 @@ final class ViewController: UIViewController {
         let message: String
     }
     
-    private let disposeBag = DisposeBag()
-    private let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Item>>()
-    private let items = Variable<[SectionModel<String, Item>]>([])
+    fileprivate let disposeBag = DisposeBag()
+    fileprivate let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Item>>()
+    fileprivate let items = Variable<[SectionModel<String, Item>]>([])
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private var calculator: ViewSizeCalculator<Cell>?
+    fileprivate var calculator: ViewSizeCalculator<Cell>?
 }
 
 extension ViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let item = dataSource.itemAtIndexPath(indexPath)
+        let item = dataSource[indexPath]
         
         if calculator == nil {
             calculator = ViewSizeCalculator(
-                sourceView: tableView.dequeueReusableCellWithIdentifier("Cell") as! Cell,
+                sourceView: tableView.dequeueReusableCell(withIdentifier: "Cell") as! Cell,
                 calculateTargetView: { $0.contentView }
             )
         }
@@ -105,6 +105,6 @@ extension ViewController: UITableViewDelegate {
         }
         .height
         
-        return heihgt + 1 / UIScreen.mainScreen().scale
+        return heihgt + 1 / UIScreen.main.scale
     }
 }
