@@ -28,8 +28,8 @@ public struct ViewSizeCalculator<T: UIView> {
   public let calculateTargetView: UIView
   public let cache: NSCache<NSString, NSValue> = NSCache<NSString, NSValue>()
 
-  fileprivate let widthConstraint: NSLayoutConstraint
-  fileprivate let heightConstraint: NSLayoutConstraint
+  private let widthConstraint: NSLayoutConstraint
+  private let heightConstraint: NSLayoutConstraint
 
   public init(sourceView: T, calculateTargetView: (T) -> UIView) {
 
