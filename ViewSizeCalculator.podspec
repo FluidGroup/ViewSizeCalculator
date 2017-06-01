@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ViewSizeCalculator'
-  s.version          = '0.1.0'
+  s.version          = '0.3.0'
   s.summary          = 'Calculate view size with AutoLayout.'
   s.homepage         = 'https://github.com/muukii/ViewSizeCalculator'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
