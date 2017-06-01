@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'ViewSizeCalculator/Classes/**/*'
+  s.source_files = 'ViewSizeCalculator/**/*.swift'
   s.frameworks = 'UIKit'
 end
