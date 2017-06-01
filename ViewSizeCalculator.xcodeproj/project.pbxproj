@@ -10,6 +10,7 @@
 		4B208ACE1D8DAD1D002F7108 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B208ACD1D8DAD1D002F7108 /* Cell.swift */; };
 		4B208ACF1D8DAD67002F7108 /* ViewSizeCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAA27271D8DA76700853B0B /* ViewSizeCalculator.framework */; };
 		4B208AD01D8DAD67002F7108 /* ViewSizeCalculator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAA27271D8DA76700853B0B /* ViewSizeCalculator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B62F6781EDFC7B6008F5F09 /* ViewSizeCalculator+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B62F6771EDFC7B6008F5F09 /* ViewSizeCalculator+Cell.swift */; };
 		4BAA272C1D8DA76700853B0B /* ViewSizeCalculator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAA272A1D8DA76700853B0B /* ViewSizeCalculator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BAA27331D8DA78500853B0B /* ViewSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA27321D8DA78500853B0B /* ViewSizeCalculator.swift */; };
 		4BAA273B1D8DA79800853B0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAA273A1D8DA79800853B0B /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		4B208ACD1D8DAD1D002F7108 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		4B62F6771EDFC7B6008F5F09 /* ViewSizeCalculator+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewSizeCalculator+Cell.swift"; sourceTree = "<group>"; };
 		4BAA27271D8DA76700853B0B /* ViewSizeCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ViewSizeCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BAA272A1D8DA76700853B0B /* ViewSizeCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewSizeCalculator.h; sourceTree = "<group>"; };
 		4BAA272B1D8DA76700853B0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				4BAA272A1D8DA76700853B0B /* ViewSizeCalculator.h */,
 				4BAA27321D8DA78500853B0B /* ViewSizeCalculator.swift */,
+				4B62F6771EDFC7B6008F5F09 /* ViewSizeCalculator+Cell.swift */,
 				4BAA272B1D8DA76700853B0B /* Info.plist */,
 			);
 			path = ViewSizeCalculator;
@@ -195,7 +198,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = muukii;
 				TargetAttributes = {
 					4BAA27261D8DA76700853B0B = {
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BAA27331D8DA78500853B0B /* ViewSizeCalculator.swift in Sources */,
+				4B62F6781EDFC7B6008F5F09 /* ViewSizeCalculator+Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +321,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -370,6 +375,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

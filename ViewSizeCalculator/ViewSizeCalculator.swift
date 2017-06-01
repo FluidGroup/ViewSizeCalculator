@@ -62,8 +62,8 @@ public struct ViewSizeCalculator<T: UIView> {
     height: CGFloat?,
     cacheKey: String?,
     closure: (T) -> Void) -> CGSize {
-
-    let combinedCacheKey = cacheKey.map({ $0 + "|" + "\(width):\(height)" })
+    
+    let combinedCacheKey = cacheKey.map({ $0 + "|" + "\(String(describing: width)):\(String(describing: height))" })
 
     if let combinedCacheKey = combinedCacheKey {
       if let size = cache.object(forKey: combinedCacheKey as NSString)?.cgSizeValue {
