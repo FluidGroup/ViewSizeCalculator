@@ -10,14 +10,14 @@ import UIKit
 
 extension ViewSizeCalculator where T : UITableViewCell {
   
-  public init(sourceView: T) {
+  public convenience init(sourceView: T) {
     self.init(sourceView: sourceView, calculateTargetView: { $0.contentView })
   }
 }
 
 extension ViewSizeCalculator where T : UICollectionViewCell {
   
-  public init(sourceView: T) {
+  public convenience init(sourceView: T) {
     self.init(sourceView: sourceView, calculateTargetView: { $0.contentView })
   }
 }
