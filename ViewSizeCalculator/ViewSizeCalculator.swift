@@ -23,40 +23,17 @@
 import UIKit
 
 public struct ViewSizeCalculator<T: UIView> {
-
+  
   public let sourceView: T
   public let calculateTargetView: UIView
   public let cache: NSCache<NSString, NSValue> = NSCache<NSString, NSValue>()
-
-  private let widthConstraint: NSLayoutConstraint
-  private let heightConstraint: NSLayoutConstraint
-
+  
   public init(sourceView: T, calculateTargetView: (T) -> UIView) {
-
+    
     self.sourceView = sourceView
     self.calculateTargetView = calculateTargetView(sourceView)
-
-    self.widthConstraint = NSLayoutConstraint(
-      item: self.calculateTargetView,
-      attribute: .width,
-      relatedBy: .equal,
-      toItem: nil,
-      attribute: .width,
-      multiplier: 0,
-      constant: 0
-    )
-
-    self.heightConstraint = NSLayoutConstraint(
-      item: self.calculateTargetView,
-      attribute: .height,
-      relatedBy: .equal,
-      toItem: nil,
-      attribute: .height,
-      multiplier: 0,
-      constant: 0
-    )
   }
-
+  
   public func calculate(
     width: CGFloat?,
     height: CGFloat?,
@@ -64,33 +41,21 @@ public struct ViewSizeCalculator<T: UIView> {
     closure: (T) -> Void) -> CGSize {
     
     let combinedCacheKey = cacheKey.map({ $0 + "|" + "\(String(describing: width)):\(String(describing: height))" })
-
+    
     if let combinedCacheKey = combinedCacheKey {
       if let size = cache.object(forKey: combinedCacheKey as NSString)?.cgSizeValue {
         return size
       }
     }
-
-    if let width = width {
-      widthConstraint.isActive = true
-      widthConstraint.constant = width
-    }
-    else {
-      widthConstraint.isActive = false
-    }
-
-    if let height = height {
-      heightConstraint.isActive = true
-      heightConstraint.constant = height
-    }
-    else {
-      heightConstraint.isActive = false
-    }
-
+    
     closure(sourceView)
-
-    let size = calculateTargetView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-
+    
+    let targetSize = CGSize(width: width ?? UILayoutFittingCompressedSize.width, height: height ?? UILayoutFittingCompressedSize.height)
+    let horizontalPriority = width == nil ? UILayoutPriorityFittingSizeLevel : UILayoutPriorityRequired
+    let verticalPriority = height == nil ? UILayoutPriorityFittingSizeLevel : UILayoutPriorityRequired
+    
+    let size = calculateTargetView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalPriority, verticalFittingPriority: verticalPriority)
+    
     if let combinedCacheKey = combinedCacheKey {
       cache.setObject(NSValue(cgSize: size), forKey: combinedCacheKey as NSString)
     }
