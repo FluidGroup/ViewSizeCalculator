@@ -51,8 +51,8 @@ public struct ViewSizeCalculator<T : UIView> {
     closure(sourceView)
     
     let targetSize = CGSize(
-      width: width ?? UILayoutFittingCompressedSize.width,
-      height: height ?? UILayoutFittingCompressedSize.height
+      width: width ?? UIView.layoutFittingCompressedSize.width,
+      height: height ?? UIView.layoutFittingCompressedSize.height
     )
     let horizontalPriority: UILayoutPriority = width == nil ? .fittingSizeLevel : .required
     let verticalPriority: UILayoutPriority = height == nil ? .fittingSizeLevel : .required
