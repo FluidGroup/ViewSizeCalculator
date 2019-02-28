@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'ViewSizeCalculator'
-  s.version          = '0.7.0'
+  s.version          = '0.8.0'
   s.summary          = 'Calculate view size with AutoLayout.'
   s.homepage         = 'https://github.com/muukii/ViewSizeCalculator'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'muukii' => 'm@muukii.me' }
+  s.author           = { 'muukii' => 'muukii.app@gmail.com' }
   s.source           = { :git => 'https://github.com/muukii/ViewSizeCalculator.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/muukii0803'
 
